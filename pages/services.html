@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,7 +61,7 @@
 
         .services-header {
             padding-top: 100px;
-            background: #2d46c1;
+            background: linear-gradient(135deg, #2d46c1, #4a90e2);
             color: white;
             text-align: center;
             padding-bottom: 60px;
@@ -73,18 +73,12 @@
             padding: 0 20px;
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
         .service-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
             transition: transform 0.3s ease;
         }
 
@@ -93,69 +87,59 @@
         }
 
         .service-image {
-            height: 200px;
-            background: linear-gradient(135deg, #2d46c1, #4a90e2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(45, 70, 193, 0.3), transparent);
         }
 
         .service-content {
             padding: 2rem;
         }
 
-        .service-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #2d46c1;
+        .service-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
         }
 
-        .benefit-stat {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .stat-number {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2d46c1;
+        .point-card {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #2d46c1;
         }
 
-        .pricing-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        .metric {
+            background: linear-gradient(135deg, #2d46c1, #4a90e2);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
             text-align: center;
-            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .price {
-            font-size: 2.5rem;
-            color: #2d46c1;
-            margin: 1rem 0;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .feature-list li {
-            margin: 0.8rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .feature-list li::before {
-            content: "✓";
-            color: #2d46c1;
-            position: absolute;
-            left: 0;
+        .metric-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
 
         .btn {
@@ -182,47 +166,11 @@
             box-shadow: 0 6px 20px rgba(45, 70, 193, 0.4);
         }
 
-        .workflow-steps {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin: 2rem 0;
-        }
-
-        .step-number {
-            background: #2d46c1;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
         footer {
             text-align: center;
             padding: 2rem;
             background: #f8fafc;
             border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .highlight-box {
-            background: #f8f9ff;
-            border-left: 4px solid #2d46c1;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
         }
 
         @media (max-width: 768px) {
@@ -232,10 +180,6 @@
             
             .services-header {
                 padding-top: 80px;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -254,177 +198,152 @@
 
     <header class="services-header">
         <h1>Our Services</h1>
-        <p>Transforming businesses through AI innovation</p>
+        <p>Cutting-edge AI solutions for tomorrow's challenges</p>
     </header>
 
     <div class="services-content">
-        <!-- Core Services -->
-        <h2 style="text-align: center; margin-bottom: 2rem;">Core AI Services</h2>
-        <div class="service-grid">
-            <div class="service-card" data-aos="fade-up">
-                <div class="service-image">🤖</div>
-                <div class="service-content">
-                    <h3>AI Workflow Automation</h3>
-                    <p>Streamline your business processes with our cutting-edge AI automation solutions.</p>
-                    <ul class="feature-list">
-                        <li>Custom workflow design</li>
-                        <li>Process optimization</li>
-                        <li>Integration support</li>
-                        <li>Performance analytics</li>
-                        <li>Real-time monitoring</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <h4>Key Benefits:</h4>
-                        <ul class="feature-list">
-                            <li>Reduce manual tasks by 75%</li>
-                            <li>Improve efficiency by 60%</li>
-                            <li>Cut operational costs by 40%</li>
-                        </ul>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Learn More</a>
+        <!-- AI Development Strategy -->
+        <div class="service-card" data-aos="fade-up">
+            <div class="service-image" style="background-image: url('/api/placeholder/1200/400')"></div>
+            <div class="service-content">
+                <div class="service-header">
+                    <h2>AI Development Strategy</h2>
+                    <p>Comprehensive AI integration and development planning for your business</p>
                 </div>
-            </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-image">📊</div>
-                <div class="service-content">
-                    <h3>AI Strategy Consulting</h3>
-                    <p>Expert guidance on implementing AI solutions for your business needs.</p>
-                    <ul class="feature-list">
-                        <li>AI readiness assessment</li>
-                        <li>Strategic planning</li>
-                        <li>ROI analysis</li>
-                        <li>Implementation roadmap</li>
-                        <li>Change management</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <h4>Our Approach:</h4>
-                        <ul class="feature-list">
-                            <li>Customized AI strategy</li>
-                            <li>Industry-specific solutions</li>
-                            <li>Scalable implementation</li>
-                        </ul>
+                <div class="key-points">
+                    <div class="point-card">
+                        <h3>Assessment</h3>
+                        <p>Deep analysis of your current technology stack and AI readiness</p>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    <div class="point-card">
+                        <h3>Planning</h3>
+                        <p>Custom roadmap development for AI implementation</p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Integration</h3>
+                        <p>Seamless integration with existing systems and workflows</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-image">🎯</div>
-                <div class="service-content">
-                    <h3>Custom AI Development</h3>
-                    <p>Tailored AI solutions designed specifically for your business challenges.</p>
-                    <ul class="feature-list">
-                        <li>Custom model development</li>
-                        <li>API integration</li>
-                        <li>Scalable solutions</li>
-                        <li>Ongoing support</li>
-                        <li>Performance optimization</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <h4>Technologies:</h4>
-                        <ul class="feature-list">
-                            <li>Machine Learning</li>
-                            <li>Deep Learning</li>
-                            <li>Natural Language Processing</li>
-                        </ul>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-number">60%</div>
+                        <div class="metric-label">Average Cost Reduction</div>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Explore</a>
                 </div>
+
+                <h3>What We Offer:</h3>
+                <ul>
+                    <li>AI Readiness Assessment</li>
+                    <li>Technology Stack Evaluation</li>
+                    <li>Custom Implementation Roadmap</li>
+                    <li>ROI Analysis</li>
+                    <li>Risk Mitigation Strategies</li>
+                </ul>
+
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
             </div>
         </div>
 
-        <!-- Specialized Services -->
-        <h2 style="text-align: center; margin: 4rem 0 2rem;">Specialized Solutions</h2>
-        <div class="service-grid">
-            <div class="service-card" data-aos="fade-up">
-                <div class="service-image">🔍</div>
-                <div class="service-content">
-                    <h3>AI-Powered Analytics</h3>
-                    <p>Transform your data into actionable insights with advanced AI analytics.</p>
-                    <ul class="feature-list">
-                        <li>Predictive analytics</li>
-                        <li>Customer behavior analysis</li>
-                        <li>Market trend forecasting</li>
-                        <li>Real-time reporting</li>
-                        <li>Data visualization</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <h4>Impact:</h4>
-                        <ul class="feature-list">
-                            <li>85% more accurate predictions</li>
-                            <li>Real-time decision making</li>
-                            <li>Comprehensive insights</li>
-                        </ul>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary">Learn More</a>
+        <!-- AI in Auditing -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-image" style="background-image: url('/api/placeholder/1200/400')"></div>
+            <div class="service-content">
+                <div class="service-header">
+                    <h2>AI in Auditing</h2>
+                    <p>Revolutionary approach to financial and operational auditing powered by AI</p>
                 </div>
-            </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-image">🎓</div>
-                <div class="service-content">
-                    <h3>AI Training & Education</h3>
-                    <p>Empower your team with AI knowledge and skills.</p>
-                    <ul class="feature-list">
-                        <li>Custom training programs</li>
-                        <li>Workshops and seminars</li>
-                        <li>Certification courses</li>
-                        <li>Hands-on projects</li>
-                        <li>Ongoing mentorship</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <h4>Programs:</h4>
-                        <ul class="feature-list">
-                            <li>Executive AI Leadership</li>
-                            <li>Technical AI Implementation</li>
-                            <li>AI for Business Users</li>
-                        </ul>
+                <div class="key-points">
+                    <div class="point-card">
+                        <h3>Pattern Recognition</h3>
+                        <p>Advanced anomaly detection and pattern analysis</p>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Enroll Now</a>
+                    <div class="point-card">
+                        <h3>Risk Assessment</h3>
+                        <p>Real-time risk evaluation and monitoring</p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Compliance</h3>
+                        <p>Automated compliance checking and reporting</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-image">📝</div>
-                <div class="service-content">
-                    <h3>AI Contract Auditing</h3>
-                    <p>Revolutionize your contract management with cutting-edge AI analysis and automation.</p>
-                    <ul class="feature-list">
-                        <li>Automated contract review</li>
-                        <li>Risk identification & assessment</li>
-                        <li>Compliance verification</li>
-                        <li>Contract optimization suggestions</li>
-                        <li>Real-time monitoring & alerts</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <h4>Key Benefits:</h4>
-                        <ul class="feature-list">
-                            <li>80% faster contract review</li>
-                            <li>90% risk reduction</li>
-                            <li>60% cost savings</li>
-                            <li>95% improved compliance</li>
-                        </ul>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-number">90%</div>
+                        <div class="metric-label">Audit Efficiency Improvement</div>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Get Started</a>
                 </div>
+
+                <h3>Features:</h3>
+                <ul>
+                    <li>Automated Data Analysis</li>
+                    <li>Continuous Monitoring</li>
+                    <li>Predictive Risk Alerts</li>
+                    <li>Compliance Automation</li>
+                    <li>Custom Report Generation</li>
+                </ul>
+
+                <a href="contact.html" class="btn btn-primary">Learn More</a>
             </div>
         </div>
 
-        <!-- Implementation Process -->
-        <div class="workflow-steps" data-aos="fade-up">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Our Implementation Process</h2>
-            
-            <div class="step">
-                <div class="step-number">1</div>
-                <div>
-                    <h3>Assessment & Discovery</h3>
-                    <p>We analyze your current processes and identify opportunities for AI implementation.</p>
+        <!-- GAI-as-Service -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-image" style="background-image: url('/api/placeholder/1200/400')"></div>
+            <div class="service-content">
+                <div class="service-header">
+                    <h2>GAI-as-Service</h2>
+                    <p>Generative AI solutions customized for your business needs</p>
                 </div>
-            </div>
 
-            <div class="step">
-                <div class="step-number">2</div>
-                <div>
-                    <h3>Strategy Development</h3>
-                    <p>Creating a custom
+                <div class="key-points">
+                    <div class="point-card">
+                        <h3>Content Creation</h3>
+                        <p>Automated content generation and optimization</p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Data Analysis</h3>
+                        <p>Intelligent data processing and insights generation</p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Process Automation</h3>
+                        <p>Smart workflow automation and optimization</p>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-number">75%</div>
+                        <div class="metric-label">Productivity Increase</div>
+                    </div>
+                </div>
+
+                <h3>Applications:</h3>
+                <ul>
+                    <li>Natural Language Processing</li>
+                    <li>Image and Video Generation</li>
+                    <li>Code Generation and Optimization</li>
+                    <li>Data Synthesis and Analysis</li>
+                    <li>Automated Decision Support</li>
+                </ul>
+
+                <a href="contact.html" class="btn btn-primary">Explore Solutions</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 NexusAI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
